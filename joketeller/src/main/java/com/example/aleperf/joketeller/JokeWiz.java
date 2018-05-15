@@ -17,7 +17,7 @@ public class JokeWiz {
             "An opinion without 3.14 is just an onion.",
             "You have to be odd to be the number one.",
             "Q: What do you get if you divide the circumference of a jack-o-lantern by its diameter? A: Pumpkin pi.",
-            "I put my root beer in a square glass. Now it’s just beer.",
+            "I put my root beer in a square glass. Now it is just beer.",
             "Three database admins walked into a bar. A little while later they walked away because they" +
                     " couldn't find a table.",
             "An Android app walks into a bar. Bartender asks, \"Can I get you a drink?\" The app " +
