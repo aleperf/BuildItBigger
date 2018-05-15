@@ -51,7 +51,6 @@ public class JokeRetrieverAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(context, JokeDisplayActivity.class);
         intent.putExtra(EXTRA_JOKE, result);
         context.startActivity(intent);
