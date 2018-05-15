@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -8,11 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import com.example.aleperf.joketeller.JokeWiz;
+import com.example.aleperf.jokedisplay.JokeDisplayActivity;
 
 
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.JokeLauncher {
-
+    private String EXTRA_JOKE = "display extra joke";
     Button jokeButton;
 
     @Override
@@ -62,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     public void tellJoke() {
         JokeWiz jokeWiz =new JokeWiz();
         String joke = jokeWiz.getJoke();
-        Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, JokeDisplayActivity.class);
+        intent.putExtra(EXTRA_JOKE, joke);
+        startActivity(intent);
     }
 }

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">jokedisplay</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="default_no_joke">No joke to display</string>
+    <string name="tools_joke">Are monsters good at math? No, unless you Count Dracula.</string>
+</resources>
