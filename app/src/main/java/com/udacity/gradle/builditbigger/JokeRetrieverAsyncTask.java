@@ -54,6 +54,5 @@ public class JokeRetrieverAsyncTask extends AsyncTask<Context, Void, String> {
         Intent intent = new Intent(context, JokeDisplayActivity.class);
         intent.putExtra(EXTRA_JOKE, result);
         context.startActivity(intent);
-
-    }
+        }
 }
