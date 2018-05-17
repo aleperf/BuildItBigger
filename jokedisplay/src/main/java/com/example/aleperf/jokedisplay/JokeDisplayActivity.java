@@ -3,7 +3,6 @@ package com.example.aleperf.jokedisplay;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -19,7 +18,7 @@ public class JokeDisplayActivity extends AppCompatActivity {
         Intent callingIntent = getIntent();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         joke = callingIntent.getStringExtra(EXTRA_JOKE);
-        TextView jokeTextView = findViewById(R.id.jokeTextView);
+        TextView jokeTextView = findViewById(R.id.joke_text_view);
         if (!TextUtils.isEmpty(joke)) {
             jokeTextView.setText(joke);
         } else {

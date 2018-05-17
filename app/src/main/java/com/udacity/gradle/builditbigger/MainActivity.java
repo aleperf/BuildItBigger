@@ -2,50 +2,28 @@ package com.udacity.gradle.builditbigger;
 
 
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.test.espresso.idling.CountingIdlingResource;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-
-import com.example.aleperf.jokedisplay.JokeDisplayActivity;
 
 
-public class MainActivity extends AppCompatActivity implements MainActivityFragment.JokeLauncher {
-    Button jokeButton;
-    MutableLiveData<String> joke = new MutableLiveData<>();
-    private String EXTRA_JOKE = "display extra joke";
+
+
+public class MainActivity extends AppCompatActivity implements MainActivityFragment.JokeLauncher, IdlingManager {
+
+
+    private CountingIdlingResource countingIdlingResource = new CountingIdlingResource(MainActivity.class.getName());
+    private boolean canCount = true;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        jokeButton = findViewById(R.id.joke_button);
-        jokeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tellJoke();
-            }
-        });
-        subscribe();
-    }
+        }
 
-    private void subscribe() {
-        Observer<String> observer = new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String retrievedJoke) {
-                Intent intent = new Intent(MainActivity.this, JokeDisplayActivity.class);
-                intent.putExtra(EXTRA_JOKE, retrievedJoke);
-                startActivity(intent);
-            }
-        };
-        joke.observe(this, observer);
-    }
 
 
     @Override
@@ -78,9 +56,22 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
 
     @Override
     @SuppressWarnings("unchecked")
-    public void tellJoke() {
+    public void tellJoke(MutableLiveData<String> joke) {
 
         new JokeRetrieverAsyncTask().execute(joke);
     }
 
+    public CountingIdlingResource getCountingIdlingResource() {
+        return countingIdlingResource;
+    }
+
+    @Override
+    public void incrementIdlingCounter() {
+        countingIdlingResource.increment();
+    }
+
+    @Override
+    public void decrementIdlingCounter() {
+         countingIdlingResource.decrement();
+    }
 }
