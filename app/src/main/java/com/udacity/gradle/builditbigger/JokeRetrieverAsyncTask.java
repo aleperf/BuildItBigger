@@ -12,6 +12,7 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 import java.io.IOException;
 
 public class JokeRetrieverAsyncTask extends AsyncTask<MutableLiveData<String>, Void, String> {
+
     private MyApi myApiService = null;
     private MutableLiveData<String> jokeToDisplay;
 
