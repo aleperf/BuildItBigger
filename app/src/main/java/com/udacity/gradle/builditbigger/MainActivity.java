@@ -20,7 +20,6 @@ import android.widget.Button;
 import com.example.aleperf.jokedisplay.JokeDisplayActivity;
 
 
-
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.JokeLauncher {
     Button jokeButton;
     MutableLiveData<String> joke = new MutableLiveData<>();
@@ -41,14 +40,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
         subscribe();
     }
 
-    private void subscribe(){
+    private void subscribe() {
         Observer<String> observer = new Observer<String>() {
             @Override
             public void onChanged(@Nullable String retrievedJoke) {
                 Intent intent = new Intent(MainActivity.this, JokeDisplayActivity.class);
                 intent.putExtra(EXTRA_JOKE, retrievedJoke);
                 startActivity(intent);
-                }
+            }
         };
         joke.observe(this, observer);
     }
@@ -77,15 +76,16 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     }
 
 
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void tellJoke() {
-        new JokeRetrieverAsyncTask().execute( joke);
+
+        new JokeRetrieverAsyncTask().execute(joke);
     }
 
 }

@@ -16,6 +16,7 @@ public class JokeRetrieverAsyncTask extends AsyncTask<MutableLiveData<String>, V
     private MutableLiveData<String> jokeToDisplay;
 
     @Override
+    @SuppressWarnings("unchecked")
     protected String doInBackground(MutableLiveData<String>... params) {
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
