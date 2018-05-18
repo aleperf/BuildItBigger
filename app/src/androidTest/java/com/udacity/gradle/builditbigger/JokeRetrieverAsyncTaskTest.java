@@ -5,6 +5,7 @@ import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.idling.CountingIdlingResource;
 import android.support.test.rule.ActivityTestRule;
 
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -24,6 +25,7 @@ public class JokeRetrieverAsyncTaskTest {
     private CountingIdlingResource countingIdlingResource;
     //text displayed if no joke is passed to JokeDisplayActivity
     private String DEFAULT_TEXT_NO_JOKE = "No joke to display";
+    private String EMPTY_STRING = "";
 
     @Rule
     public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class, false, false);
@@ -41,6 +43,7 @@ public class JokeRetrieverAsyncTaskTest {
         onView(withId(R.id.joke_button)).perform(click());
         onView(withId(R.id.joke_text_view)).check(matches(isDisplayed()));
         onView(withId(R.id.joke_text_view)).check(matches(not(withText(DEFAULT_TEXT_NO_JOKE))));
+        onView(withId(R.id.joke_text_view)).check(matches(not(withText(EMPTY_STRING))));
     }
 
     @After

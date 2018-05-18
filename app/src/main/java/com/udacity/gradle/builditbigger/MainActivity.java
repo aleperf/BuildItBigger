@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 
 
-public class MainActivity extends AppCompatActivity implements MainActivityFragment.JokeLauncher, IdlingManager {
+public class MainActivity extends AppCompatActivity implements JokeLauncher, IdlingManager {
 
 
     private CountingIdlingResource countingIdlingResource = new CountingIdlingResource(MainActivity.class.getName());
