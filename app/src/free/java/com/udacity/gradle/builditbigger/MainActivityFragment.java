@@ -8,25 +8,30 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.aleperf.jokedisplay.JokeDisplayActivity;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
+
     Button jokeButton;
     MutableLiveData<String> joke = new MutableLiveData<>();
     private String EXTRA_JOKE = "display extra joke";
     private boolean canCount = true;
+    private InterstitialAd mInterstitialAd;
+    private String jokeToLoad;
 
 
 
@@ -57,6 +62,39 @@ public class MainActivityFragment extends Fragment {
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         mAdView.loadAd(adRequest);
+        mInterstitialAd = new InterstitialAd(getActivity());
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when when the interstitial ad is closed.
+                AdRequest adRequest = new AdRequest.Builder()
+                        .build();
+                mInterstitialAd.loadAd(adRequest);
+                launchJokeIntent();
+            }
+        });
         return root;
     }
 
@@ -77,12 +115,22 @@ public class MainActivityFragment extends Fragment {
                     decrementIdling();
                     canCount = false;
                 }
-                Intent intent = new Intent(getActivity(), JokeDisplayActivity.class);
-                intent.putExtra(EXTRA_JOKE, retrievedJoke);
-                startActivity(intent);
+                jokeToLoad = retrievedJoke;
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    launchJokeIntent();
+                }
+
             }
         };
         joke.observe(this, observer);
+    }
+
+    private void launchJokeIntent(){
+        Intent intent = new Intent(getActivity(), JokeDisplayActivity.class);
+        intent.putExtra(EXTRA_JOKE, jokeToLoad);
+        startActivity(intent);
     }
 
 
@@ -111,5 +159,7 @@ public class MainActivityFragment extends Fragment {
             manager.incrementIdlingCounter();
         }
     }
+
+
 
 }
