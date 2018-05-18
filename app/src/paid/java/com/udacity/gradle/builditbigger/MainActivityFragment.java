@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.example.aleperf.jokedisplay.JokeDisplayActivity;
 import com.udacity.gradle.builditbigger.IdlingManager;
@@ -22,10 +23,12 @@ import com.udacity.gradle.builditbigger.JokeLauncher;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
-    Button jokeButton;
-    MutableLiveData<String> joke = new MutableLiveData<>();
+
+    private Button jokeButton;
+    private MutableLiveData<String> joke = new MutableLiveData<>();
     private String EXTRA_JOKE = "display extra joke";
     private boolean canCount = true;
+    private ProgressBar progressBar;
 
 
     public MainActivityFragment() {
@@ -41,9 +44,11 @@ public class MainActivityFragment extends Fragment {
         jokeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 callForAJoke();
             }
         });
+        progressBar = root.findViewById(R.id.progress_bar);
 
         return root;
     }
@@ -65,9 +70,11 @@ public class MainActivityFragment extends Fragment {
                     decrementIdling();
                     canCount = false;
                 }
+
                 Intent intent = new Intent(getActivity(), JokeDisplayActivity.class);
                 intent.putExtra(EXTRA_JOKE, retrievedJoke);
                 startActivity(intent);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         };
         joke.observe(this, observer);
