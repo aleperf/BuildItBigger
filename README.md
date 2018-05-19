@@ -1,3 +1,10 @@
+
+Build It Bigger is a project required for the Android Developer Nanodegree by Udacity. <br>
+It is the final project of the course ["Gradle For Android And Java"](https://eu.udacity.com/course/gradle-for-android-and-java--ud867)<br>
+You can find the starter code for this project [here](https://github.com/udacity/ud867/tree/master/FinalProject) <br>
+Below the original instructions for the project, with all requirements and optional tasks. <br>
+Credits: icon for the project from [Flaticon](https://www.flaticon.com/) <br>
+
 # Gradle for Android and Java Final Project
 
 In this project, you will create an app with multiple flavors that uses
