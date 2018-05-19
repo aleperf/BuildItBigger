@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class JokeDisplayActivity extends AppCompatActivity {
     private String EXTRA_JOKE = "display extra joke";
-    private String joke;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class JokeDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_joke_display);
         Intent callingIntent = getIntent();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        joke = callingIntent.getStringExtra(EXTRA_JOKE);
+        String joke = callingIntent.getStringExtra(EXTRA_JOKE);
         TextView jokeTextView = findViewById(R.id.joke_text_view);
         if (!TextUtils.isEmpty(joke)) {
             jokeTextView.setText(joke);

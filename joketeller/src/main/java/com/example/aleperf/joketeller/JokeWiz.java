@@ -16,7 +16,7 @@ public class JokeWiz {
             "Dear algebra, please stop asking us to find your X. It is never coming back and don't ask Y.",
             "An opinion without 3.14 is just an onion.",
             "You have to be odd to be the number one.",
-            "Q: What do you get if you divide the circumference of a jack-o-lantern by its diameter? A: Pumpkin pi.",
+            "Q: What do you get if you divide the circumference of a jack-o-lantern by its diameter? \n A: Pumpkin pi.",
             "I put my root beer in a square glass. Now it is just beer.",
             "Three database admins walked into a bar. A little while later they walked away because they" +
                     " couldn't find a table.",
@@ -24,7 +24,7 @@ public class JokeWiz {
                     "says: \"That's exactly my intent.\"",
             "A fragment walks into a bar, and the bartender asks for an ID. Fragment says, \"I don't " +
                     "have an ID.\" So the bartender says, \"Okay, I'll make a NullPointerException.\"",
-            "Q:\"Dad what are clouds made of?\" A: \"Linux servers, mostly\".",
+            "Q:\"Dad what are clouds made of?\" \n A: \"Linux servers, mostly\".",
             "There's no place like 127.0.0.1",
             "Are monsters good at math? No, unless you Count Dracula.",
             "Never criticize someone until you've walked a mile in their shoes. " +

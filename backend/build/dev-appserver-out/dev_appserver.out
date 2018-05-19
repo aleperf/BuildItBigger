@@ -1,35 +1,21 @@
 Warning: Google App Engine Java 7 runtime is deprecated.
 Warning: See https://cloud.google.com/appengine/docs/deprecations/java7
-mag 18, 2018 4:58:08 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+mag 19, 2018 10:45:23 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFORMAZIONI: Overwriting system property key 'java.util.logging.config.file', value 'C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\androidProg\and\buildItBigger\buildItBigger\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-mag 18, 2018 4:58:09 PM com.google.apphosting.utils.jetty.JettyLogger info
+mag 19, 2018 10:45:23 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMAZIONI: Logging to JettyLogger(null) via com.google.apphosting.utils.jetty.JettyLogger
-mag 18, 2018 2:58:09 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
-AVVERTENZA: Your working directory, (C:\androidProg\and\buildItBigger\buildItBigger\backend) is not equal to your 
+mag 19, 2018 8:45:23 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+AVVERTENZA: Your working directory, (C:\androidProg\and\buildItBigger\buildItBigger) is not equal to your 
 web application root (C:\androidProg\and\buildItBigger\buildItBigger\backend\build\exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-mag 18, 2018 2:58:09 PM com.google.apphosting.utils.jetty.JettyLogger info
+mag 19, 2018 8:45:23 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMAZIONI: jetty-6.1.x
-mag 18, 2018 2:58:10 PM com.google.apphosting.utils.jetty.JettyLogger info
+mag 19, 2018 8:45:24 PM com.google.apphosting.utils.jetty.JettyLogger info
 INFORMAZIONI: Started SelectChannelConnector@localhost:8080
-mag 18, 2018 2:58:10 PM com.google.appengine.tools.development.AbstractModule startup
+mag 19, 2018 8:45:24 PM com.google.appengine.tools.development.AbstractModule startup
 INFORMAZIONI: Module instance default is running at http://localhost:8080/
-mag 18, 2018 2:58:10 PM com.google.appengine.tools.development.AbstractModule startup
+mag 19, 2018 8:45:24 PM com.google.appengine.tools.development.AbstractModule startup
 INFORMAZIONI: The admin console is running at http://localhost:8080/_ah/admin
-mag 18, 2018 4:58:10 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+mag 19, 2018 10:45:24 PM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFORMAZIONI: Dev App Server is now running
-mag 18, 2018 4:58:15 PM com.google.appengine.api.datastore.dev.LocalDatastoreService init
-INFORMAZIONI: Local Datastore initialized: 
-	Type: High Replication
-	Storage: C:\androidProg\and\buildItBigger\buildItBigger\backend\build\exploded-backend\WEB-INF\appengine-generated\local_db.bin
-mag 18, 2018 4:58:15 PM com.google.appengine.api.datastore.dev.LocalDatastoreService load
-INFORMAZIONI: The backing store, C:\androidProg\and\buildItBigger\buildItBigger\backend\build\exploded-backend\WEB-INF\appengine-generated\local_db.bin, does not exist. It will be created.
-mag 18, 2018 4:58:16 PM com.google.appengine.tools.development.LocalResourceFileServlet doGet
-AVVERTENZA: No file found for: /favicon.ico
-mag 18, 2018 4:58:16 PM com.google.appengine.tools.development.LocalResourceFileServlet doGet
-AVVERTENZA: No file found for: /favicon.ico
-mag 18, 2018 4:58:21 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeByteBufferOperations
-AVVERTENZA: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")
-mag 18, 2018 4:58:21 PM com.google.appengine.repackaged.com.google.protobuf.UnsafeUtil supportsUnsafeArrayOperations
-AVVERTENZA: platform method missing - proto runtime falling back to safer methods: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.misc")

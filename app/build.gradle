@@ -50,12 +50,18 @@ android {
 
         paid {
             java.srcDirs = ['src/paid/java', 'src/paid/java/']
+
         }
         free {
             java.srcDirs = ['src/free/java', 'src/free/java/']
+
         }
+
+
     }
 }
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

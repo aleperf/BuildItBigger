@@ -9,20 +9,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-
-
 public class MainActivity extends AppCompatActivity implements JokeLauncher, IdlingManager {
 
 
     private CountingIdlingResource countingIdlingResource = new CountingIdlingResource(MainActivity.class.getName());
-    private boolean canCount = true;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        }
+    }
 
 
 
@@ -72,6 +68,6 @@ public class MainActivity extends AppCompatActivity implements JokeLauncher, Idl
 
     @Override
     public void decrementIdlingCounter() {
-         countingIdlingResource.decrement();
+        countingIdlingResource.decrement();
     }
 }

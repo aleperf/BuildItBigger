@@ -21,3 +21,9 @@ allprojects {
         maven { url "https://maven.google.com" }
     }
 }
+//custom task to start the GCE server, run all tests and then shut down the server
+task runAllTests(dependsOn: ':app:connectedAndroidTest'){
+    mustRunAfter ':backend:appengineStart'
+    finalizedBy ':backend:appengineStop'
+}
+
